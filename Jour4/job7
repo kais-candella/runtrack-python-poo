@@ -1,0 +1,53 @@
+
+import random
+
+
+class Carte:
+    def __init__(self, valeur, couleur):
+        self.valeur = valeur
+        self.couleur = couleur
+    
+    def __str__(self):
+        return str(self.valeur) + " de " + self.couleur
+
+
+class Jeu:
+    def __init__(self):
+        couleurs = ["Pique", "Coeur", "Carreau", "Trèfle"]
+        valeurs = [2, 3, 4, 5, 6, 7, 8, 9, 10, "Valet", "Dame", "Roi", "As"]
+        self.paquet = [Carte(v, c) for v in valeurs for c in couleurs]
+        random.shuffle(self.paquet)
+
+croupier_cartes = []
+joueur_cartes = []
+
+jeu = Jeu()
+
+while len(croupier_cartes) != 2:
+    croupier_cartes.append(jeu.paquet.pop())
+    if len(croupier_cartes) == 2:
+        print("Le Croupier a X &", croupier_cartes[1])
+
+
+while len(joueur_cartes) != 2:
+    joueur_cartes.append(jeu.paquet.pop())
+    if len(joueur_cartes) == 2:
+        print("Vous avez ", [str(c) for c in joueur_cartes])
+ 
+
+if sum([c.valeur if isinstance(c.valeur, int) else 10 for c in croupier_cartes]) == 21:
+    print("Le croupier a 21 et gagne !")
+elif sum([c.valeur if isinstance(c.valeur, int) else 10 for c in croupier_cartes]) > 21:
+    print("Le croupier a perdu !")
+
+
+while sum([c.valeur if isinstance(c.valeur, int) else 10 for c in joueur_cartes]) < 21:
+    action_taken = str(input("Vous voulez rester ou piocher "))
+    if action_taken == "piocher":
+        joueur_cartes.append(jeu.paquet.pop())
+        print("Vous avez maintenant un total de " + str(sum([c.valeur if isinstance(c.valeur, int) else 10 for c in joueur_cartes])) + " avec ces cartes ", [str(c) for c in joueur_cartes])
+    else:
+        print("Le croupier a maintenant un total de" + str(sum([c.valeur if isinstance(c.valeur, int) else 10 for c in croupier_cartes])) + " avec ", [str(c) for c in croupier_cartes])
+        print("Vous avez un total de  " + str(sum([c.valeur if isinstance(c.valeur, int) else 10 for c in joueur_cartes])) + " avec ", [str(c) for c in joueur_cartes])
+        if sum([c.valeur if isinstance(c.valeur, int) else 10 for c in croupier_cartes]) > sum([c.valeur]):
+            pass
