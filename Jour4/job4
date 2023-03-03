@@ -1,0 +1,19 @@
+class Forme:
+    def __init__(self) -> None:
+        pass
+    
+    def air():
+        return 0
+
+class Rectangle(Forme):
+    
+    def __init__(self,longueur,largeur):
+        self.longueur = longueur
+        self.largeur = largeur
+        
+    def air(self):
+        return self.longueur * self.largeur
+    
+
+rectangle = Rectangle(10,15)   
+print(rectangle.air())

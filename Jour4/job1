@@ -1,0 +1,79 @@
+class Personne:
+    
+    def __init__(self):
+      self.age = 14
+      
+    def get_afficherAge(self):
+        return self.age
+
+    def set_afficherAge(self,age):
+        self.age = age
+        
+    
+    def bonjour(self):
+        return "hello"
+    
+    def get_modifierAge(self):
+        return self.age
+    
+    def set_modifierAge(self,age):
+        self.age = age    
+        
+        
+    
+personne1 = Personne()   
+    
+print(personne1.get_afficherAge())
+print(personne1.bonjour())
+
+print("-"*8)
+
+personne1.set_modifierAge(40)
+
+print(personne1.get_modifierAge())
+
+
+class Eleve(Personne):
+    
+    def __init__(self):
+        pass
+    
+    def allerEnCour(self):
+        return "Je vais en cours"
+    
+    def affichageAge(self):
+        return "J'ai XX ans "
+  
+
+eleve1 = Eleve()  
+  
+print(eleve1.allerEnCour())
+print(eleve1.affichageAge())
+
+class Professeur:
+    
+    def __init__(self,):
+        self._matiereEnseignée = "français"
+        
+    def enseigner(self):
+        return "Le cours va commencer"
+    
+    
+professeur1 = Professeur()
+
+print(professeur1.enseigner())
+
+class Eleve(Personne):
+    
+    def __init__(self):
+        super().__init__()
+        
+    def allerEnCour(self):
+        return "Je vais en cours"
+    
+    def affichageAge(self):
+        return "J'ai {} ans".format(self.age)
+
+eleve1 = Eleve()
+print("-"*8)
+print(eleve1.get_afficherAge())  

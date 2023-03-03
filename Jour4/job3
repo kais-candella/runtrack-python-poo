@@ -1,0 +1,57 @@
+class Rectangle:
+    
+    def __init__(self):
+        self._longueur = 100
+        self._largeur = 50
+        
+        
+    def périmètre(self):
+        return 2*(self._longueur + self._largeur)
+    
+    def surface(self):
+        return self._longueur*self._largeur
+    
+    def get_changerLongueur(self):
+        return self._longueur
+    
+    def set_changerLongueur(self,longueur):
+        self._largeur = longueur
+        
+    def get_changerLargeur(self):
+        return self._largeur
+    
+    def set_changerLargeur(self,largeur):
+        self._largeur = largeur
+
+air = Rectangle()
+
+print("L'air de se Rectangle est de ->",air.périmètre())
+print("La surface de se Rectangle est de ->",air.surface())
+
+
+air.set_changerLongueur(200)
+air.set_changerLargeur(100)
+
+
+print("L'air de se Rectangle est de ->",air.périmètre())
+print("La surface de se Rectangle est de ->",air.surface())
+
+
+class Parallélépipède(Rectangle):
+    
+    def __init__(self,hauteur ):
+        self.hauteur = hauteur
+        
+    def volume(self):
+        return self._longueur*self._largeur*self.hauteur
+    
+    def get_changerHauteur(self):
+        return self.hauteur
+    
+    def set_changerHauteur(self,hauteur):
+        self.hauteur = hauteur
+
+air2 = Parallélépipède(100,50,50)   
+    
+print(air2.get_changerHauteur())
+
