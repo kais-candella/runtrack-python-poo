@@ -11,7 +11,8 @@ class Vehicule:
         print("Modèle du vehicule :",self.modèle)
         print("Année du vehicule :",self.année)
         print("Prix du vehicule :",self.prix)
-        
+
+
 class Voiture(Vehicule):
     
     def __init__(self, marque, modèle, année, prix):
@@ -24,3 +25,16 @@ class Voiture(Vehicule):
         
 voiture = Voiture("Audi", "A3", 2021, "29080€")
 voiture.informationsVehicule()
+
+class Moto(Vehicule):
+    
+    def __init__(self, marque, modèle, année, prix):
+        super().__init__(marque, modèle, année, prix)
+        self.roue = 2
+        
+    def informationsVehicule(self):
+        super().informationsVehicule()
+        print("Nombre de roue :", self.roue)
+        
+moto = Moto("Yamaha", "MT-07", 2021, "8000€")
+moto.informationsVehicule()
