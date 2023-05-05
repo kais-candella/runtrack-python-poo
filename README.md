@@ -1,4 +1,4 @@
-# Blackjack
+# Blackjack est un exemple d'exercice présent sur ce répôt
 
 Ce projet est une implémentation du célèbre jeu Blackjack, réalisé dans le cadre d'un projet demandé par l'école. 
 
